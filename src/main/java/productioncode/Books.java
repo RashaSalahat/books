@@ -25,7 +25,7 @@ public class Books extends Book {
 		 for(int i=0; i <4;i++) 
 			{
 	
-				if( ((book.get(i).getBookISBN_10().equals(ISBN))  && !(book.get(i).getBookTitle().equals(title) )) ||
+				if( ((book.get(i).getBookISBN10().equals(ISBN))  && !(book.get(i).getBookTitle().equals(title) )) ||
 						(books.get(i).getBookSignature().equals(sig) &&  !(book.get(i).getBookTitle().equals(title) ) ))
 				{ 
 				
@@ -53,7 +53,7 @@ public class Books extends Book {
 		for(int i=0; i<6;i++)
 		{
 			if(books.get(i).getBookTitle().equals(title)&&books.get(i).getBookAuthor().equals(author) &&
-					books.get(i).getBookSignature().equals(sig)&&books.get(i).getBookISBN_10().equals(ISBN)	)
+					books.get(i).getBookSignature().equals(sig)&&books.get(i).getBookISBN10().equals(ISBN)	)
 				return i;
 				
 		}

@@ -4,12 +4,12 @@ public class Book {
 private String bookTitle;
 private String bookAuthor;
 private String bookSignature;
-private String bookISBN_10;
+private String bookISBN10;
 private String bookState;
 //set and get methods  bookTitle
-public void setBookTitle(String bookTitle_value)
+public void setBookTitle(String bookTitlevalue)
 {
-	bookTitle=bookTitle_value;
+	bookTitle=bookTitlevalue;
 }
 public String getBookTitle()
 {
@@ -17,9 +17,9 @@ public String getBookTitle()
 }
 
 //set and get methods bookAuthor
-public void setBookAuthor(String bookAuthor_value)
+public void setBookAuthor(String bookAuthorvalue)
 {
-	bookAuthor=bookAuthor_value;
+	bookAuthor=bookAuthorvalue;
 }
 public String getBookAuthor()
 {
@@ -27,9 +27,9 @@ public String getBookAuthor()
 }
 
 //set and get methods bookSignature 
-public void setBookSignature(String bookSignature_value)
+public void setBookSignature(String bookSignaturevalue)
 {
-	bookSignature=bookSignature_value;
+	bookSignature=bookSignaturevalue;
 }
 public String getBookSignature()
 {
@@ -37,37 +37,37 @@ public String getBookSignature()
 }
 
 //set and get methods bookISBN_10
-public void setBookISBN_10(String bookISBN_10_value)
+public void setBookISBN_10(String bookISBN10value)
 {
-	bookISBN_10=bookISBN_10_value;
+	bookISBN10=bookISBN10value;
 }
-public String getBookISBN_10()
+public String getBookISBN10()
 {
-	return bookISBN_10;
+	return bookISBN10;
 }
 
 //set and get methods bookState
 
-public void setBookState(String bookState_value)
+public void setBookState(String bookStatevalue)
 {
-	bookState=bookState_value;
+	bookState=bookStatevalue;
 }
 public String getBookState()
 {
 	return bookState;
 }
-public boolean validISBN(String ISBN_value)
+public boolean validISBN(String iSBNvalue)
 { 
 	int x=0;
 	int sum=0;
 	char c;
 	String ch="";
-	int length=ISBN_value.length();
+	int length=iSBNvalue.length();
 	if (length!=10)
 		return false;
 	for(int i=0; i<=9;i++)
 		{
-		c=ISBN_value.charAt(i);
+		c=iSBNvalue.charAt(i);
 		ch=c+"";
 		x=Integer.parseInt(ch);
 		
@@ -77,7 +77,8 @@ public boolean validISBN(String ISBN_value)
 			if(sum%11==0)
 			{       
 				return true;}
-			else return false;
+			
+			 return false;
 }
 
 

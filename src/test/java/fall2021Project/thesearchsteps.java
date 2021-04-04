@@ -77,7 +77,7 @@ public class thesearchsteps {
 			if(exist == true)
 			{
 				//ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN_10());
+				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
 		        flag=true;
 			
 			}
@@ -105,7 +105,7 @@ public class thesearchsteps {
 			if(exist == true)
 			{
 				//ras=();
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN_10());
+				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
 		        flag=true;
 			
 			}
@@ -125,7 +125,7 @@ public class thesearchsteps {
 		all.addAll(books);
 		for(Book i:all)
 		{
-			if(i.getBookISBN_10().contains(ISBN))
+			if(i.getBookISBN10().contains(ISBN))
 				exist=true;
 			else
 				exist=false;
@@ -133,7 +133,7 @@ public class thesearchsteps {
 			if(exist == true)
 			{
 				//ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN_10());
+				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
 		        flag=true;
 			
 			}
@@ -165,7 +165,7 @@ public class thesearchsteps {
 			if(exist == true)
 			{
 				//ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN_10());
+				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
 		        flag=true;
 			
 			}
@@ -199,7 +199,7 @@ public class thesearchsteps {
 			if(exist == true)
 			{
 				//ras=();
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN_10());
+				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
 		        flag=true;
 			
 			}
@@ -225,7 +225,7 @@ public class thesearchsteps {
 		all.addAll(books);
 		for(Book i:all)
 		{
-			if(i.getBookISBN_10().contains(ISBNa))
+			if(i.getBookISBN10().contains(ISBNa))
 				exist=true;
 			else
 				exist=false;
@@ -233,7 +233,7 @@ public class thesearchsteps {
 			if(exist == true)
 			{
 				//ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN_10());
+				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
 		        flag=true;
 			
 			}
@@ -264,7 +264,7 @@ public class thesearchsteps {
 			if(exist == true)
 			{
 				//ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN_10());
+				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
 		        flag=true;
 			
 			}
@@ -340,7 +340,7 @@ public class thesearchsteps {
 		all.addAll(books);
 		for(Book i:all)
 		{
-			if(i.getBookISBN_10().contains(ISBN2))
+			if(i.getBookISBN10().contains(ISBN2))
 				exist=true;
 			else
 				exist=false;
@@ -405,7 +405,7 @@ public class thesearchsteps {
 			if(exist == true)
 			{
 				ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN_10());
+				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
 		        flag=true;
 			
 			}
@@ -435,7 +435,7 @@ public class thesearchsteps {
 			if(exist == true)
 			{
 				//ras=();
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN_10());
+				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
 		        flag=true;
 			
 			}
