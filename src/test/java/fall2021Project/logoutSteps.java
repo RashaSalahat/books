@@ -6,11 +6,11 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import ProductionCode.Admin;
-import ProductionCode.Admins;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import productioncode.Admin;
+import productioncode.Admins;
 
 public class logoutSteps  {
 	Admin admin1;
@@ -54,7 +54,7 @@ public class logoutSteps  {
 		   {   if (Bstate==true)
 		  { 
 		   flack=false;
-		   admin1.setflack_login(false);
+		   admin1.setflacklogin(false);
 		  }
 		   }
 	   }

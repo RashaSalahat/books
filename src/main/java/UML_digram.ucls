@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="ProductionCode.Book" project="fall2021Project" 
-    file="/fall2021Project/src/main/java/ProductionCode/Book.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="productioncode.Book" project="fall2021Project" 
+    file="/fall2021Project/src/main/java/productioncode/Book.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="417" y="258"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
