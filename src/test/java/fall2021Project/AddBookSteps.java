@@ -111,7 +111,7 @@ public class AddBookSteps {
 	 @Then("The state of book  should be \\({string}) and add successfuly")
 	   public void the_state_of_book_should_be_and_add_successfuly(String bookState) 
 		{
-	    assertTrue(bookState.equals(  listBooks1.getlistbooks().get(i).getBookState()));
+		 assertEquals(bookState,  listBooks1.getlistbooks().get(i).getBookState());
 	   
 	    } 
 	 //when admin logout
