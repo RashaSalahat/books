@@ -1,32 +1,40 @@
 package productioncode;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Books extends Book {
 	Book book;
-	public ArrayList<Book> books=new ArrayList<Book>();
+	public List<Book> listbooks=new ArrayList<Book>();
 	public Books(Book book){
 		this.book=book;
 	}
-	public void addBook(String title,String author, String signuature, String ISBN_10,String state)
+	public void setlistbooks(List<Book> listbooksValue) {
+		 listbooks=listbooksValue;
+	}
+	public List<Book> getlistbooks()
+	{
+		return listbooks;
+	}
+	public void addBook(String title,String author, String signuature, String iSBN_10,String state)
 	{
 		    book=new Book();
          	 book.setBookTitle(title);
 		     book.setBookAuthor(author);
 		     book.setBookSignature(signuature);
-		     book.setBookISBN10(ISBN_10);
+		     book.setBookISBN10(iSBN_10);
 		     book.setBookState(state);
-		     books.add(book);
+		     listbooks.add(book);
 	}
 	
-	public boolean isExistISBN_Sig(String ISBN,String sig,ArrayList<Book> book,String title)
+	public boolean isExistISBNSig(String iSBN,String sig,List<Book> book,String title)
 	{ 
 
 		 for(int i=0; i <4;i++) 
 			{
 	
-				if( ((book.get(i).getBookISBN10().equals(ISBN))  && !(book.get(i).getBookTitle().equals(title) )) ||
-						(books.get(i).getBookSignature().equals(sig) &&  !(book.get(i).getBookTitle().equals(title) ) ))
+				if( ((book.get(i).getBookISBN10().equals(iSBN))  && !(book.get(i).getBookTitle().equals(title) )) ||
+						(listbooks.get(i).getBookSignature().equals(sig) &&  !(book.get(i).getBookTitle().equals(title) ) ))
 				{ 
 				
 					
@@ -48,12 +56,12 @@ public class Books extends Book {
 	
 	
 	
-	public int findBook(String title,String author, String sig, String ISBN)
+	public int findBook(String title,String author, String sig, String iSBN)
 	{
 		for(int i=0; i<6;i++)
 		{
-			if(books.get(i).getBookTitle().equals(title)&&books.get(i).getBookAuthor().equals(author) &&
-					books.get(i).getBookSignature().equals(sig)&&books.get(i).getBookISBN10().equals(ISBN)	)
+			if(listbooks.get(i).getBookTitle().equals(title)&&listbooks.get(i).getBookAuthor().equals(author) &&
+					listbooks.get(i).getBookSignature().equals(sig)&&listbooks.get(i).getBookISBN10().equals(iSBN)	)
 				return i;
 				
 		}

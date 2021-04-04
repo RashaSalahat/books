@@ -69,7 +69,7 @@ public class AddBookSteps {
 		
 		 i=listBooks1.findBook(titleBook, authorBook, signuature, ISBN);
 	   
-		  if(listBooks1.books.get(i).validISBN(ISBN)==true)
+		  if(listBooks1.listbooks.get(i).validISBN(ISBN)==true)
 		  {   
 			  boolean state;    
 	      state=Boolean.parseBoolean(Admin_state);
@@ -82,18 +82,18 @@ public class AddBookSteps {
 					if(state==true)
 					{	
 			
-						    if(listBooks1.isExistISBN_Sig(ISBN, signuature,listBooks1.books,titleBook))
+						    if(listBooks1.isExistISBNSig(ISBN, signuature,listBooks1.getlistbooks(),titleBook))
 							{    
 								
 								System.out.print("invalid ISBN or Signuature");
 								break;
 							}
-							else listBooks1.books.get(i).setBookState(bookState_Exist);
+							else listBooks1.listbooks.get(i).setBookState(bookState_Exist);
 					 
 					}
 					else {
 					      
-						listBooks1.books.get(i).setBookState(bookState_Unexist);
+						listBooks1.listbooks.get(i).setBookState(bookState_Unexist);
 						
 					   }
 				}
@@ -101,7 +101,7 @@ public class AddBookSteps {
 		  }
 		  else 
 			  {
-			  listBooks1.books.get(i).setBookState(bookState_Unexist);
+			  listBooks1.listbooks.get(i).setBookState(bookState_Unexist);
 			  System.out.print("invalid ISBN");
 			  }
 	}
@@ -111,7 +111,7 @@ public class AddBookSteps {
 	 @Then("The state of book  should be \\({string}) and add successfuly")
 	   public void the_state_of_book_should_be_and_add_successfuly(String bookState) 
 		{
-	    assertTrue(bookState.equals(  listBooks1.books.get(i).getBookState()));
+	    assertTrue(bookState.equals(  listBooks1.listbooks.get(i).getBookState()));
 	   
 	    } 
 	 //when admin logout
@@ -119,7 +119,7 @@ public class AddBookSteps {
      @Then("the admin can't add book should be\\({string}) and warining message \\({string})display")
            public void the_admin_can_t_add_book_should_be_and_warining_message_display(String bookState, String msg) 
               {
-        	 assertTrue((bookState.equals( listBooks1.books.get(i).getBookState())));
+        	 assertTrue((bookState.equals( listBooks1.listbooks.get(i).getBookState())));
         	 System.out.print(" "+msg);
                   }
 
