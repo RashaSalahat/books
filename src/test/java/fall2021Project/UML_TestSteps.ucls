@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="fall2021Project.logoutSteps" project="fall2021Project" 
+    file="/fall2021Project/src/test/java/fall2021Project/logoutSteps.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="224" width="907" x="532" y="451"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="fall2021Project.Test_steps" project="fall2021Project" 
+    file="/fall2021Project/src/test/java/fall2021Project/Test_steps.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="104" x="700" y="312"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="fall2021Project.thesearchsteps" project="fall2021Project" 
+    file="/fall2021Project/src/test/java/fall2021Project/thesearchsteps.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1034" width="622" x="1483" y="114"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="fall2021Project.loginSteps" project="fall2021Project" 
+    file="/fall2021Project/src/test/java/fall2021Project/loginSteps.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="296" width="611" x="818" y="143"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="fall2021Project.AddBookSteps" project="fall2021Project" 
+    file="/fall2021Project/src/test/java/fall2021Project/AddBookSteps.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="985" y="837"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
