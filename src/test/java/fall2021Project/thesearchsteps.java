@@ -50,7 +50,7 @@ public class thesearchsteps {
 			
 			book.setBookAuthor(t1[1]);
 			book.setBookSignature(t1[2]);
-			book.setBookISBN_10(t1[3]);
+			book.setBookISBN10(t1[3]);
 			books.add(book);
 			
 			

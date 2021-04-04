@@ -14,7 +14,7 @@ public class Books extends Book {
          	 book.setBookTitle(title);
 		     book.setBookAuthor(author);
 		     book.setBookSignature(signuature);
-		     book.setBookISBN_10(ISBN_10);
+		     book.setBookISBN10(ISBN_10);
 		     book.setBookState(state);
 		     books.add(book);
 	}

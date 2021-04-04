@@ -37,7 +37,7 @@ public String getBookSignature()
 }
 
 //set and get methods bookISBN_10
-public void setBookISBN_10(String bookISBN10value)
+public void setBookISBN10(String bookISBN10value)
 {
 	bookISBN10=bookISBN10value;
 }
@@ -61,6 +61,8 @@ public boolean validISBN(String iSBNvalue)
 	int x=0;
 	int sum=0;
 	char c;
+	boolean ret;
+	
 	String ch="";
 	int length=iSBNvalue.length();
 	if (length!=10)
@@ -76,9 +78,10 @@ public boolean validISBN(String iSBNvalue)
 	
 			if(sum%11==0)
 			{       
-				return true;}
+				ret=true;}
 			
-			 return false;
+			ret=false;
+			 return ret;
 }
 
 
