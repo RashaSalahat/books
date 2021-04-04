@@ -74,7 +74,7 @@ public class AddBookSteps {
 			  boolean state;    
 	      state=Boolean.parseBoolean(Admin_state);
 		 
-		  for(int j=0; j<listAdmins.listadmin.size();j++)
+		  for(int j=0; j<listAdmins.getlistadmin().size();j++)
 			 {
 		
 			  if(listAdmins.checkAdmin(Admin_username, Admin_password))
