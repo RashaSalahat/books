@@ -5,34 +5,41 @@ import java.util.List;
 
 public class Admins extends Admin {
 Admin admin1;
-public List<Admin> admins=new ArrayList <Admin>();
-public void addAdmin(String username_value,String password_value,boolean flack_login )	
+private List<Admin> listadmin=new ArrayList <Admin>();
+public void setlistadmin(List<Admin> listadminValue) {
+	listadmin=listadminValue;
+}
+public List<Admin> getlistadmin()
+{
+	return listadmin;
+}
+public void addAdmin(String usernamevalue,String passwordvalue,boolean flacklogin )	
 {
 	    
    	admin1=new Admin();
-   	admin1.setAdminUsername(username_value);
-   	admin1.setAdminPassword(password_value);
-   	 admin1.setflacklogin(flack_login );
-   	admins.add(admin1);
+   	admin1.setAdminUsername(usernamevalue);
+   	admin1.setAdminPassword(passwordvalue);
+   	 admin1.setflacklogin(flacklogin );
+   	listadmin.add(admin1);
  
 }
 
-public boolean checkAdmin(String Admin_username, String Admin_password) {
+public boolean checkAdmin(String adminusername, String adminpassword) {
 	 String adminState;
-	 for (int i=0;i<admins.size();i++)
+	 for (int i=0;i<listadmin.size();i++)
 	    {
     
-	    adminState=	(admins.get(i).checkvalid(Admin_username, Admin_password));
+	    adminState=	(listadmin.get(i).checkvalid(adminusername, adminpassword));
 	    	
 		if(adminState.equals("true"))
 		{
-			admins.get(i).setflacklogin(true);	
+			listadmin.get(i).setflacklogin(true);	
 			return true;
 		   	
 		}
 		else
 		{	
-			admins.get(i).setflacklogin(false); 
+			listadmin.get(i).setflacklogin(false); 
 			
 		}
 		
@@ -41,12 +48,12 @@ public boolean checkAdmin(String Admin_username, String Admin_password) {
 	 
 }
 
-public boolean logState(String Admin_username, String Admin_password) {
-	 for (int i=0;i<admins.size();i++)
+public boolean logState(String adminusername, String adminpassword) {
+	 for (int i=0;i<listadmin.size();i++)
 	    {
-		 if(admins.get(i).getAdminUsername().equals(Admin_username) && 
-				 admins.get(i).getAdminPassword().equals(Admin_password)&&
-				 admins.get(i).getflacklogin()==true)
+		 if(listadmin.get(i).getAdminUsername().equals(adminusername) && 
+				 listadmin.get(i).getAdminPassword().equals(adminpassword)&&
+				 listadmin.get(i).getflacklogin())
 		     return true;
 		 
 	    }

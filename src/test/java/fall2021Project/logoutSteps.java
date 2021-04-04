@@ -46,7 +46,8 @@ public class logoutSteps  {
 	{
 		  boolean Bstate;
 		   Bstate=Boolean.parseBoolean(buttonState);
-		for (int i=0;i<listAdmins.admins.size();i++)
+		 
+		for (int i=0;i<listAdmins.getlistadmin().size();i++)
 	    {    
 			
 		
