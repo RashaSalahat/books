@@ -59,7 +59,7 @@ public class loginSteps {
        {
     	   
     	   expected=Boolean.parseBoolean(adminState);
-		   assertTrue(expected==flack); 
+    	   assertEquals(expected,flack); 
        }
          
 
@@ -68,7 +68,7 @@ public class loginSteps {
        {
     	  
     	   expected=Boolean.parseBoolean(adminState);
-		   assertTrue(expected==flack);
+    	   assertEquals(expected,flack);
 		   System.out.print("Your password wrong please try again");
        }
 

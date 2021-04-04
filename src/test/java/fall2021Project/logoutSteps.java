@@ -1,5 +1,6 @@
 package fall2021Project;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -67,7 +68,7 @@ public class logoutSteps  {
 	{
 		boolean state;
 		state=Boolean.parseBoolean(Admin_state);
-		assertTrue(flack==state);
+		assertEquals(flack,state);
 	
 	}
 	

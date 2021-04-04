@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Books extends Book {
 	Book book;
-	public List<Book> listbooks=new ArrayList<Book>();
+	private List<Book> listbooks=new ArrayList<Book>();
 	public Books(Book book){
 		this.book=book;
 	}
@@ -16,13 +16,13 @@ public class Books extends Book {
 	{
 		return listbooks;
 	}
-	public void addBook(String title,String author, String signuature, String iSBN_10,String state)
+	public void addBook(String title,String author, String signuature, String iSBN10,String state)
 	{
 		    book=new Book();
          	 book.setBookTitle(title);
 		     book.setBookAuthor(author);
 		     book.setBookSignature(signuature);
-		     book.setBookISBN10(iSBN_10);
+		     book.setBookISBN10(iSBN10);
 		     book.setBookState(state);
 		     listbooks.add(book);
 	}
