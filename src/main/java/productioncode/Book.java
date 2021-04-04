@@ -78,10 +78,10 @@ public boolean validISBN(String iSBNvalue)
 	
 			if(sum%11==0)
 			{       
-				ret=true;}
+				ret= true;}
 			
-			ret=false;
-			 return ret;
+			else ret= false;
+			return ret;
 }
 
 
