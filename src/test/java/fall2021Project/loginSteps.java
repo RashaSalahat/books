@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.picocontainer.annotations.Inject.*;
 
@@ -23,7 +24,7 @@ public class loginSteps {
 	public boolean expected;
 	public String Admin_pass;
 	Admin admin1;
-
+	Logger logger= Logger.getLogger(loginSteps.class.getName());
 	public boolean flack;
 
 	public  loginSteps (Admin admin1,Admins listAdmins)
@@ -69,7 +70,8 @@ public class loginSteps {
     	  
     	   expected=Boolean.parseBoolean(adminState);
     	   assertEquals(expected,flack);
-		   System.out.print("Your password wrong please try again");
+    	   logger.info("Your password wrong please try again");
+		  
        }
 
 

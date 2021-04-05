@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -26,7 +27,7 @@ public class AddBookSteps {
     String bookState_Unexist="Unexisting";
     String MSG;
     int i;
-	
+    Logger logger= Logger.getLogger( AddBookSteps.class.getName());
 	public AddBookSteps(Admins listAdmins,Books listBooks1)
 	{
 
@@ -84,8 +85,7 @@ public class AddBookSteps {
 			
 						    if(listBooks1.isExistISBNSig(ISBN, signuature,listBooks1.getlistbooks(),titleBook))
 							{    
-								
-								System.out.print("invalid ISBN or Signuature");
+						    	logger.info("invalid ISBN or Signuature");	
 								break;
 							}
 							else listBooks1.getlistbooks().get(i).setBookState(bookState_Exist);
@@ -102,7 +102,8 @@ public class AddBookSteps {
 		  else 
 			  {
 			  listBooks1.getlistbooks().get(i).setBookState(bookState_Unexist);
-			  System.out.print("invalid ISBN");
+			  logger.info("invalid ISBN");
+			 
 			  }
 	}
 	
@@ -120,7 +121,8 @@ public class AddBookSteps {
            public void the_admin_can_t_add_book_should_be_and_warining_message_display(String bookState, String msg) 
               {
     	 assertEquals(bookState , listBooks1.getlistbooks().get(i).getBookState());
-        	 System.out.print(" "+msg);
+    	 logger.info(" "+msg);
+        	
                   }
 
 
