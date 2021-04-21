@@ -38,12 +38,18 @@ public class Admin {
 
 
 	public String checkvalid(String s1, String s2) {
-	    if ((adminusername.equals(s1))&&(adminpassword.equals(s2)))
+	    if (extracted(s1, s2))
 	     return "true";
-	    else if ((adminusername.equals(s1)))
+	    else if (extracted(s1))
 	    	return "false";
 	    else return "non";
 	    
+	}
+	private boolean extracted(String s1) {
+		return adminusername.equals(s1);
+	}
+	private boolean extracted(String s1, String s2) {
+		return extracted(s1)&&(adminpassword.equals(s2));
 	}
 
 

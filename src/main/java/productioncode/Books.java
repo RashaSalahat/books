@@ -32,8 +32,7 @@ public class Books extends Book {
 		 for(int i=0; i <4;i++) 
 			{
 	
-				if( ((book.get(i).getBookISBN10().equals(iSBN))  && !(book.get(i).getBookTitle().equals(title) )) ||
-						(listbooks.get(i).getBookSignature().equals(sig) &&  !(book.get(i).getBookTitle().equals(title) ) ))
+				if( extracted(iSBN, sig, book, title, i))
 				{ 
 				
 					
@@ -49,6 +48,10 @@ public class Books extends Book {
 					}
 		 return false;
 	}
+	private boolean extracted(String iSBN, String sig, List<Book> book, String title, int i) {
+		return ((book.get(i).getBookISBN10().equals(iSBN))  && !(book.get(i).getBookTitle().equals(title) )) ||
+				(listbooks.get(i).getBookSignature().equals(sig) &&  !(book.get(i).getBookTitle().equals(title) ) );
+	}
 		
 		 
 
@@ -59,11 +62,14 @@ public class Books extends Book {
 	{
 		for(int i=0; i<6;i++)
 		{
-			if(listbooks.get(i).getBookTitle().equals(title)&&listbooks.get(i).getBookAuthor().equals(author) &&
-					listbooks.get(i).getBookSignature().equals(sig)&&listbooks.get(i).getBookISBN10().equals(iSBN)	)
+			if(extracted(title, author, sig, iSBN, i)	)
 				return i;
 				
 		}
 		return 0;
+	}
+	private boolean extracted(String title, String author, String sig, String iSBN, int i) {
+		return listbooks.get(i).getBookTitle().equals(title)&&listbooks.get(i).getBookAuthor().equals(author) &&
+				listbooks.get(i).getBookSignature().equals(sig)&&listbooks.get(i).getBookISBN10().equals(iSBN);
 	}
 }

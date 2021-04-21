@@ -10,7 +10,11 @@ public class BySig implements GeneralSpec {
 	
 	public boolean isSpecMatch(Book book) {
 
-		return ((book.getBookISBN10()).contains(this.type));
+		return extracted(book);
+	}
+
+	private boolean extracted(Book book) {
+		return (book.getBookISBN10()).contains(this.type);
 	}
 	
 

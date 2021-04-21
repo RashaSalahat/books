@@ -11,7 +11,11 @@ public class ByTitleSpec implements GeneralSpec {
 	
 	public boolean isSpecMatch(Book book) {
 		
-		return ((book.getBookTitle()).contains(this.type));
+		return extracted(book);
+	}
+
+	private boolean extracted(Book book) {
+		return (book.getBookTitle()).contains(this.type);
 	}
 	
 	

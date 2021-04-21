@@ -51,13 +51,16 @@ public boolean checkAdmin(String adminusername, String adminpassword) {
 public boolean logState(String adminusername, String adminpassword) {
 	 for (int i=0;i<listadmin.size();i++)
 	    {
-		 if(listadmin.get(i).getAdminUsername().equals(adminusername) && 
-				 listadmin.get(i).getAdminPassword().equals(adminpassword)&&
-				 listadmin.get(i).getflacklogin())
+		 if(extracted(adminusername, adminpassword, i))
 		     return true;
 		 
 	    }
 	 return false;
+}
+private boolean extracted(String adminusername, String adminpassword, int i) {
+	return listadmin.get(i).getAdminUsername().equals(adminusername) && 
+			 listadmin.get(i).getAdminPassword().equals(adminpassword)&&
+			 listadmin.get(i).getflacklogin();
 }
 
 

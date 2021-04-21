@@ -10,7 +10,11 @@ public class ByAuthor implements GeneralSpec{
 	
 	public boolean isSpecMatch(Book book) {
 		
-		return ((book.getBookAuthor()).contains(this.type));
+		return extracted(book);
+	}
+
+	private boolean extracted(Book book) {
+		return (book.getBookAuthor()).contains(this.type);
 	}
 	
 	

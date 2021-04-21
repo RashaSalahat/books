@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="fall2021Project.Test_steps" project="fall2021Project" 
     file="/fall2021Project/src/test/java/fall2021Project/Test_steps.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="683" y="303"/>    
+    <position height="-1" width="-1" x="632" y="362"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
