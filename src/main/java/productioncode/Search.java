@@ -29,9 +29,9 @@ public class Search {
 		}
 		else
 		{	
-		for (Book book:  bookResult) {
+		for (Book books:  bookResult) {
 		
-			LOGGER.info(book.getBookTitle() + book.getBookAuthor() + book.getBookISBN10() + book.getBookSignature());
+			LOGGER.info(books.getBookTitle() + books.getBookAuthor() + books.getBookISBN10() + books.getBookSignature());
 			
 		}
 		}
@@ -90,8 +90,7 @@ public class Search {
 			
 			if (spec.isSpecMatch(a))
 			{
-			
-				//LOGGER.info( "  "+a.getBookTitle()+"  "+a.getBookAuthor()+"  "+a.getBookSignature()+"   "+a.getBookISBN10());
+		
 		      LOGGER.info( "\n");
 			
 				bookResult.add(a);
