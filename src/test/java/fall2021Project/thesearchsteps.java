@@ -236,7 +236,7 @@ public class thesearchsteps {
 		all.addAll(search.byTitle(title2));
 	
 			
-	assertEquals(all.size(),0);
+	assertEquals(0,all.size());
 		
 		
 			
@@ -253,7 +253,7 @@ public class thesearchsteps {
 		System.out.println("Search by Author: "+matcha);
 		all.clear();
 		all.addAll(search.byAuthor(matcha));
-		assertEquals(all.size(),0);
+		assertEquals(0,all.size());
 		search.printResult();
 	}
 	
@@ -267,7 +267,7 @@ public class thesearchsteps {
 		System.out.println("Search by ISBN: "+ISBN2);
 		all.clear();
 		all.addAll(search.byISBN(ISBN2));
-		assertEquals(all.size(),0);
+		assertEquals(0,all.size());
 		search.printResult();
 		
 	}
@@ -281,7 +281,7 @@ public class thesearchsteps {
 		System.out.println("Search by Sig: "+sigm);
 		all.clear();
 		all.addAll(search.bySig(sigm));
-		assertEquals(all.size(),0);
+		assertEquals(0,all.size());
 		search.printResult();
 	}
 	
