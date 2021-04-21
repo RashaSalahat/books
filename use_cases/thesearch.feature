@@ -7,7 +7,6 @@ The System has a repository of books with their specifications (title-author-sig
 |Righting Software_Juval Löwy_Löwy2020_0136524036|
 
 
-
 @d
 Scenario Outline: search about books for a substring of the title
 When I search about book by using a substring <TheTitle> 
@@ -17,8 +16,8 @@ Examples:
 |"The Linux Programming Interface"|
 |"Programming Rust: Fast, Safe Systems Development Paperback"|
 |"Righting Software"|
-|"Programming"|
-
+|"Ri"|
+|"ras"|
 @d
 Scenario Outline: search books for a substring of the author
 When I search about books by its  <Author> 
@@ -28,7 +27,6 @@ Examples:
 |"Michael Kerrisk"|
 |"Jim Blandy"|
 |"Juval Löwy"|
-|"Jim"|
 |"J"|
 
 
@@ -110,6 +108,7 @@ Examples:
 |"folklore"|
 |"cardigan"|
 
+
 @d
 Scenario Outline: No books match the critera by searching for author
 When I search about a book written by <Author> 
@@ -153,6 +152,7 @@ Examples:
 |"Righting Software"|
 |"The"|
 |"Programming"|
+|"Fast"|
 
 
 @d

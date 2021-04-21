@@ -1,6 +1,9 @@
 package fall2021Project;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +12,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import productioncode.Book;
+import productioncode.GeneralSpec;
+import productioncode.Search;
 
 public class thesearchsteps {
+	
 	public ArrayList<Book> books=new ArrayList<Book>();
 	boolean fadmin;
 	Book book;
@@ -30,9 +36,13 @@ public class thesearchsteps {
 	String ISBN;
 	String ras;
 	boolean exist;
-	public thesearchsteps()
+	public List<GeneralSpec> specList = new ArrayList<GeneralSpec>();
+	
+    private static Search  search;
+	public thesearchsteps(Search search)
 	{
-		this.book=book;
+		this.search=search;
+		
 		
 	}
 	
@@ -55,8 +65,12 @@ public class thesearchsteps {
 			
 			
 		}
+		
+		
+	 search = new Search((ArrayList<Book>) books);
+		
 	}
-	ArrayList<Book> all=new ArrayList<Book>();
+	List<Book> all=new ArrayList<Book>();
 	
 	@When("I search about book by using a substring {string}")
 	public void i_search_about_book_by_using_a_substring(String string) {
@@ -65,26 +79,17 @@ public class thesearchsteps {
 
 	@Then("books that contain a substring of the title should be returned and printed on the console")
 	public void books_that_contain_a_substring_of_the_title_should_be_returned_and_printed_on_the_console() {
+		System.out.println("Search by Title: "+title);
 		all.clear();
-		all.addAll(books);
+		all.addAll(search.byTitle(title));
 		for(Book i:all)
 		{
-			if(i.getBookTitle().contains(title))
-				exist=true;
-			else
-				exist=false;
-			    
-			if(exist == true)
-			{
-				//ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
-		        flag=true;
-			
-			}
-			
+			assertTrue(i.getBookTitle().contains(title));
 			
 		}
-		assertEquals(flag, true);
+		
+		search.printResult();
+	
 	}
 	@When("I search about books by its  {string}")
 	public void i_search_about_books_by_its(String string) {
@@ -93,25 +98,16 @@ public class thesearchsteps {
 
 	@Then("book that contain a substring of the author should be returned and printed on the console")
 	public void book_that_contain_a_substring_of_the_author_should_be_returned_and_printed_on_the_console() {
+		System.out.println("Search by Author: "+author);
 		all.clear();
-		all.addAll(books);
+		all.addAll(search.byAuthor(author));
 		for(Book i:all)
 		{
-			if(i.getBookAuthor().contains(author))
-				exist=true;
-			else
-				exist=false;
-			    
-			if(exist == true)
-			{
-				//ras=();
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
-		        flag=true;
-			
-			}
-			
+			assertTrue(i.getBookAuthor().contains(author));
+		
 	}
-		assertEquals(flag, true);
+		search.printResult();
+		
 	}
 	
 	@When("I search about  books by the book's {string}")
@@ -121,29 +117,21 @@ public class thesearchsteps {
 
 	@Then("books that contain a substring of the ISBN should be returned and printed on the console")
 	public void books_that_contain_a_substring_of_the_isbn_should_be_returned_and_printed_on_the_console() {
+		System.out.println("Search by ISBN: "+ISBN);
 		all.clear();
-		all.addAll(books);
+		all.addAll(search.byISBN(ISBN));
 		for(Book i:all)
 		{
-			if(i.getBookISBN10().contains(ISBN))
-				exist=true;
-			else
-				exist=false;
-			    
-			if(exist == true)
-			{
-				//ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
-		        flag=true;
-			
-			}
+		
+			assertTrue(i.getBookISBN10().contains(ISBN));
 	}
-		assertEquals(flag, true);
+		search.printResult();
+		
 	
 	}
 	@Given("administrator\\/user is logged in")
 	public void administrator_user_is_logged_in() {
-     fadmin =true;
+		fadmin =search.loggedin();
 	}
 
 	@When("admininstrator\\/user search about a book by {string}")
@@ -153,31 +141,23 @@ public class thesearchsteps {
 
 	@Then("a book that contains a substring of the title should be returned and printed")
 	public void a_book_that_contains_a_substring_of_the_title_should_be_returned_and_printed() {
+		System.out.println("Search by Title: "+titlea);
 		all.clear();
-		all.addAll(books);
+		all.addAll(search.byTitle(titlea));
 		for(Book i:all)
 		{
-			if(i.getBookTitle().contains(titlea))
-				exist=true;
-			else
-				exist=false;
-			    
-			if(exist == true)
-			{
-				//ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
-		        flag=true;
 			
-			}
-			
+			assertTrue(i.getBookTitle().contains(titlea));
 			
 		}
-		assertEquals(flag, true);
+	
+		
+		search.printResult();
 	}
 	
 	@Given("administrator\\/user is logged in to search using the book's author")
 	public void administrator_user_is_logged_in_to_search_using_the_book_s_author() {
-		 fadmin =true;
+		fadmin =search.loggedin();
 	}
 
 	@When("admininstrator\\/user search about a book by the book's {string}")
@@ -187,31 +167,21 @@ public class thesearchsteps {
 
 	@Then("books that contains a substring of the author should be returned and printed")
 	public void books_that_contains_a_substring_of_the_author_should_be_returned_and_printed() {
+		System.out.println("Search by Author: "+authora);
 		all.clear();
-		all.addAll(books);
+		all.addAll(search.byAuthor(authora));
 		for(Book i:all)
 		{
-			if(i.getBookAuthor().contains(authora))
-				exist=true;
-			else
-				exist=false;
-			    
-			if(exist == true)
-			{
-				//ras=();
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
-		        flag=true;
-			
-			}
-			
+			assertTrue(i.getBookAuthor().contains(authora));
+		
 	}
-		assertEquals(flag, true);
-	  
+		search.printResult();
 	}
 	
 	@Given("administrator\\/user is logged in to search using the book's ISBN")
 	public void administrator_user_is_logged_in_to_search_using_the_book_s_isbn() {
-		 fadmin =true;
+		
+		 fadmin =search.loggedin();
 	}
 
 	@When("admininstrator\\/user search about a book by the book {string}")
@@ -221,28 +191,19 @@ public class thesearchsteps {
 
 	@Then("books that contains a substring of the ISBN should be returned and printed")
 	public void books_that_contains_a_substring_of_the_isbn_should_be_returned_and_printed() {
+		System.out.println("Search by ISBN: "+ISBNa);
 		all.clear();
-		all.addAll(books);
+		all.addAll(search.byISBN(ISBNa));
 		for(Book i:all)
 		{
-			if(i.getBookISBN10().contains(ISBNa))
-				exist=true;
-			else
-				exist=false;
-			    
-			if(exist == true)
-			{
-				//ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
-		        flag=true;
-			
-			}
+		
+			assertTrue(i.getBookISBN10().contains(ISBNa));
 	}
-		assertEquals(flag, true);
+		search.printResult();
 	}
 	@Given("administrator\\/user is logged in to search using the book's Signature")
 	public void administrator_user_is_logged_in_to_search_using_the_book_s_signature() {
-		 fadmin =true;
+		 fadmin =search.loggedin();
 	}
 
 	@When("admininstrator\\/user search about a book usingg  {string}")
@@ -252,24 +213,15 @@ public class thesearchsteps {
 
 	@Then("books that contains a substring of the Signature should be returned and printed")
 	public void books_that_contains_a_substring_of_the_signature_should_be_returned_and_printed() {
+		System.out.println("Search by Sig: "+sig);
 		all.clear();
-		all.addAll(books);
+		all.addAll(search.bySig(sig));
 		for(Book i:all)
 		{
-			if(i.getBookSignature().contains(sig))
-				exist=true;
-			else
-				exist=false;
-			    
-			if(exist == true)
-			{
-				//ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
-		        flag=true;
-			
-			}
+		
+			assertTrue(i.getBookSignature().contains(sig));
 	}
-		assertEquals(flag, true);
+		search.printResult();
 	}
 	
 	@When("I search about a book using the book's {string}")
@@ -279,26 +231,17 @@ public class thesearchsteps {
 
 	@Then("there would be no matches, there are no books in the system match the entered title")
 	public void there_would_be_no_matches_there_are_no_books_in_the_system_match_the_entered_title() {
+		System.out.println("Search by title: "+title2);
 		all.clear();
-		all.addAll(books);
-		for(Book i:all)
-		{
-			if(i.getBookTitle().contains(title2))
-				exist=true;
-			else
-				exist=false;
+		all.addAll(search.byTitle(title2));
+	
 			
-			if(exist == true)
-			{
-				
-			break;
+	assertEquals(all.size(),0);
+		
 		
 			
-			}
-		}
-		System.out.println("No books match the criteria");
-		
-		assertEquals(exist,false);
+	
+		search.printResult();
 	}
 	@When("I search about a book written by {string}")
 	public void i_search_about_a_book_written_by(String string) {
@@ -307,26 +250,11 @@ public class thesearchsteps {
 
 	@Then("there would be no matches, there are no books in the system match the entered author")
 	public void there_would_be_no_matches_there_are_no_books_in_the_system_match_the_entered_author() {
+		System.out.println("Search by Author: "+matcha);
 		all.clear();
-		all.addAll(books);
-		for(Book i:all)
-		{
-			if(i.getBookAuthor().contains(matcha))
-				exist=true;
-			else
-				exist=false;
-			
-			if(exist == true)
-			{
-				
-			break;
-		
-			
-			}
-		}
-		System.out.println("No books match the criteria");
-		
-		assertEquals(exist,false);
+		all.addAll(search.byAuthor(matcha));
+		assertEquals(all.size(),0);
+		search.printResult();
 	}
 	
 	@When("I search about a book having {string}")
@@ -336,26 +264,12 @@ public class thesearchsteps {
 
 	@Then("there would be no matches, there are no books in the system match the entered ISBN")
 	public void there_would_be_no_matches_there_are_no_books_in_the_system_match_the_entered_isbn() {
+		System.out.println("Search by ISBN: "+ISBN2);
 		all.clear();
-		all.addAll(books);
-		for(Book i:all)
-		{
-			if(i.getBookISBN10().contains(ISBN2))
-				exist=true;
-			else
-				exist=false;
-			
-			if(exist == true)
-			{
-				
-			break;
+		all.addAll(search.byISBN(ISBN2));
+		assertEquals(all.size(),0);
+		search.printResult();
 		
-			
-			}
-		}
-		System.out.println("No books match the criteria");
-		
-		assertEquals(exist,false);
 	}
 	@When("I search about a book by their unique {string}")
 	public void i_search_about_a_book_by_their_unique(String string) {
@@ -364,26 +278,11 @@ public class thesearchsteps {
 
 	@Then("there would be no matches, there are no books in the system match the entered signature")
 	public void there_would_be_no_matches_there_are_no_books_in_the_system_match_the_entered_signature() {
+		System.out.println("Search by Sig: "+sigm);
 		all.clear();
-		all.addAll(books);
-		for(Book i:all)
-		{
-			if(i.getBookSignature().contains(sigm))
-				exist=true;
-			else
-				exist=false;
-			
-			if(exist == true)
-			{
-				
-			break;
-		
-			
-			}
-		}
-		System.out.println("No books match the criteria");
-		
-		assertEquals(exist,false);
+		all.addAll(search.bySig(sigm));
+		assertEquals(all.size(),0);
+		search.printResult();
 	}
 	
 	@When("I search about a book by their {string}")
@@ -393,28 +292,16 @@ public class thesearchsteps {
 
 	@Then("there would more than one match ,the consol will print all of them")
 	public void there_would_more_than_one_match_the_consol_will_print_all_of_them() {
+		System.out.println("Search by Title: "+title3);
 		all.clear();
-		all.addAll(books);
+		all.addAll(search.byTitle(title3));
 		for(Book i:all)
 		{
-			if(i.getBookTitle().contains(title3))
-				exist=true;
-			else
-				exist=false;
-			    
-			if(exist == true)
-			{
-				ras=(" "+i.getBookTitle());
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
-		        flag=true;
 			
-			}
-		
-			
+			assertTrue(i.getBookTitle().contains(title3));
 			
 		}
-		//System.out.println(ras);
-		assertEquals(flag, true);
+		search.printResult();
 	}
 	@When("I search about books with an {string}")
 	public void i_search_about_books_with_an(String string) {
@@ -423,24 +310,14 @@ public class thesearchsteps {
 
 	@Then("there would more than one match ,the consol will print all of the books")
 	public void there_would_more_than_one_match_the_consol_will_print_all_of_the_books() {
+		System.out.println("Search by Author: "+authorm);
 		all.clear();
-		all.addAll(books);
+		all.addAll(search.byAuthor(authorm));
 		for(Book i:all)
 		{
-			if(i.getBookAuthor().contains(authorm))
-				exist=true;
-			else
-				exist=false;
-			    
-			if(exist == true)
-			{
-				//ras=();
-				System.out.println("  "+i.getBookTitle()+"  "+i.getBookAuthor()+"  "+i.getBookSignature()+"   "+i.getBookISBN10());
-		        flag=true;
-			
-			}
-			
+			assertTrue(i.getBookAuthor().contains(authorm));
+		
 	}
-		assertEquals(flag, true);
+		search.printResult();	
 	}
 }
